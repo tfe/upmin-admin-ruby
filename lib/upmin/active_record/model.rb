@@ -29,6 +29,10 @@ module Upmin::ActiveRecord
         return [:id, :created_at, :created_on, :updated_at, :updated_on]
       end
 
+      def default_crud_actions
+        return [:index, :create, :new, :edit, :show, :update, :destroy]
+      end
+
       def attribute_type(attribute)
         adapter = model_class.columns_hash[attribute.to_s]
         if adapter
