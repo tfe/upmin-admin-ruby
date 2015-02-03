@@ -322,6 +322,18 @@ module Upmin
       return @items_per_page ||= items
     end
 
+    # Sets the associations to the provided associations if any are any
+    # provided. If no associations are provided then the associations are set to
+    # the default associations of the model class.
+    def Model.associations(*associations)
+      if associations.any?
+        @associations = associations.map{|a| a.to_sym}
+      end
+      @associations ||= default_associations
+
+      return @associations
+    end
+
 
     ###########################################################
     ### Methods that need to be to be overridden. If the
@@ -350,14 +362,14 @@ module Upmin
       return default_crud_actions
     end
 
+    def Model.default_associations
+      new
+      return default_associations
+    end
+
     def Model.attribute_type(attribute)
       new
       return attribute_type(attribute)
-    end
-
-    def Model.associations
-      new
-      return associations
     end
 
   end
