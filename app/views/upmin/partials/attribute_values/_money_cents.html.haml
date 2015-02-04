@@ -1,0 +1,4 @@
+- if attribute.value.respond_to?(:/)
+  = number_to_currency(attribute.value / 100.to_f)
+- else
+  = attribute.value
