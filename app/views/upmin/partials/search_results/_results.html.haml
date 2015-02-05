@@ -1,3 +1,6 @@
+%h4
+  = pluralize query.upmin_results.count, query.klass.humanized_name
+
 - query.upmin_results.each do |result|
   %a.search-result-link{href: result.path}
     .upmin-model{class: result.color}
