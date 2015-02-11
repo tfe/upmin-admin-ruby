@@ -25,10 +25,6 @@ module Upmin::ActiveRecord
         return model_class.attribute_names.map(&:to_sym)
       end
 
-      def default_uneditable_attributes
-        return [:id, :created_at, :created_on, :updated_at, :updated_on]
-      end
-
       def default_crud_actions
         return [:index, :create, :new, :edit, :show, :update, :destroy]
       end
